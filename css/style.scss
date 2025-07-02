@@ -1,0 +1,434 @@
+@charset "UTF-8";
+
+/*レスポンシブ*/
+$sp: 480px;
+$tb: 780px;
+
+@mixin sp {
+    @media screen and (max-width: ($sp)) {
+        @content;
+    }
+}
+
+@mixin tb {
+    @media screen and (max-width: ($tb)) {
+        @content;
+    }
+}
+
+body {
+    background-color: #F5F0E4;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.sec-title {
+    font-size: 2.25rem;
+    margin-bottom: 30px;
+    margin-top: 60;
+
+    @include sp {
+        margin: 30px 0 15px;
+        text-align: center;
+    }
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4%;
+    /* 左右の余白を4%に設定 */
+}
+
+.content {
+    width: 50%;
+    padding: 0 2%;
+    font-size: 1.25rem;
+
+    @include sp {
+        width: 100%;
+    }
+}
+
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 4%;
+    // background-color: #b6a71b;
+    background-color: #935d2a;
+    position: fixed;
+    width: 100%;
+    /* 画面幅いっぱいにするために必要 */
+    z-index: 10;
+    align-items: center;
+
+    .logo {
+        a {
+            display: flex; //align-items: center;を反映するために記述。flexとセットで使用
+
+            img {
+                width: 200px;
+
+                @include sp {
+                    width: 120px;
+                }
+            }
+
+        }
+    }
+
+    #navi {
+        display: flex;
+        align-items: center;
+
+        .navi-menu {
+            display: flex;
+
+            /*SP時ハンバーガーメニューを表示するため非表示*/
+            @include sp {
+                display: none;
+            }
+
+            li {
+                padding-right: 30px;
+                font-size: 1.5rem;
+
+            }
+
+            a {
+                display: inline-block; //ホバー時、scale()をしようするため
+
+                &:hover {
+                    transform: scale(1.25);
+                }
+            }
+        }
+    }
+}
+
+/*------- 
+toggleボタン sp時表示
+--------*/
+#mask {
+    display: none;
+    transition: all 0.5s;
+}
+
+.toggle-btn {
+    display: none; //SP以外非表示
+    transition: all 0.5s;
+
+    @include sp {
+        width: 40px;
+        height: 40px;
+        z-index: 20;
+        position: relative;
+        cursor: pointer;
+        display: block; //これがないと表示されない！！
+
+        span {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            height: 2px;
+            background-color: #000;
+            transition: all 0.5s;
+
+            &:nth-child(1) {
+                top: 22%;
+            }
+
+            &:nth-child(2) {
+                top: 50%;
+            }
+
+            &:nth-child(3) {
+                top: 78%;
+            }
+        }
+    }
+}
+
+/*sp時表示するナビメニュー*/
+#navi-sp {
+    display: none;
+    transition: all 0.5s;
+
+    @include sp {
+        display: block;
+        position: fixed;
+        width: 300px;
+        height: 100%;
+        top: 0;
+        padding: 60px 40px;
+        z-index: 20;
+        font-size: 1.5rem;
+        opacity: 0;
+        background-color: #935d2a;
+        left: -300px;
+
+        a {
+            color: #fff;
+        }
+
+    }
+}
+
+/*open付与時のコード*/
+/*display: none; ⇔ display: block; の切り替えはtransitionできません。
+visibilityやopacity、transformなど、数値で変化するプロパティで切り替える必要があります。*/
+.open {
+    #navi-sp {
+        opacity: 1;
+        left: 0;
+    }
+
+    .toggle-btn {
+        span {
+            background-color: #fff;
+
+            &:nth-child(1) {
+                top: 50%;
+                -webkit-transform: rotate(-315deg); //古いブラウザをサポートするための記述
+                transform: rotate(-315deg);
+            }
+
+            &:nth-child(2) {
+                opacity: 0;
+            }
+
+            &:nth-child(3) {
+                top: 50%;
+                -webkit-transform: rotate(315deg); //古いブラウザをサポートするための記述
+                transform: rotate(315deg);
+            }
+        }
+    }
+
+    #mask {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #121212;
+        opacity: 0.7;
+        z-index: 10;
+        cursor: pointer;
+    }
+
+}
+
+main {
+    #mainvisual {
+        padding-top: 80px;
+        margin-bottom: 30px;
+
+        @include sp {
+            padding-top: 60px;
+        }
+
+        img {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+
+            @include sp {
+                height: 70vh;
+            }
+        }
+
+        p {
+            color: white;
+            font-size: 3rem;
+            position: absolute;
+            top: 60%;
+            left: 7%;
+
+            @include sp {
+                font-size: 2rem;
+                top: 18%;
+                left: 10%;
+            }
+        }
+    }
+
+    #pickup {
+        text-align: center;
+        margin-bottom: 100px;
+
+        @include sp {
+            margin-bottom: 60px;
+        }
+
+
+        .slide-items {
+            width: 100%;
+            height: 100%;
+
+            img {
+                width: 100%; // 画像の横幅
+                height: 30vh; // 画像の高さ
+                object-fit: cover; // 画像を枠いっぱいにトリミング
+            }
+        }
+    }
+
+
+    #concept {
+        display: flex;
+        justify-content: space-between;
+
+        @include sp {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        img {
+            width: 50%;
+
+            @include sp {
+                width: 100%;
+            }
+        }
+
+    }
+
+    #drink,
+    #food {
+        display: flex;
+        margin-top: 60px;
+
+        dl {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            dt {
+                width: 60%;
+                text-align: left;
+            }
+
+            dd {
+                width: 40%;
+                text-align: right;
+            }
+        }
+
+        img {
+            width: 50%;
+            height: 330px;
+            object-fit: cover;
+
+            @include sp {
+                width: 100%;
+            }
+        }
+    }
+
+    /*並び順を逆にする*/
+    #drink {
+        @include sp {
+            flex-direction: column-reverse;
+        }
+    }
+
+    #food {
+        @include sp {
+            flex-direction: column;
+        }
+    }
+
+    #location {
+        display: flex;
+        margin-top: 60px;
+
+        @include tb {
+            flex-direction: column;
+            margin-top: 0;
+        }
+
+        iframe {
+            @include tb {
+                width: 100%;
+            }
+        }
+
+        .content {
+            @include tb {
+                width: 100%;
+            }
+
+            dl {
+                @include tb {
+                    margin: 20px 0 40px;
+                }
+
+                @include sp {
+                    font-size: 1rem;
+                }
+
+                display: flex;
+                flex-wrap: wrap;
+
+                dt {
+                    width: 50%;
+                }
+
+                dd {
+                    width: 50%;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 30px 0;
+
+    #sns {
+        justify-content: center;
+        display: flex; //gapをしようするためにflexを使用
+        gap: 20px;
+    }
+}
+
+.slick-slide {
+    margin: 0 15px;
+}
+
+// slickの矢印の色変更
+.slick-prev:before,
+.slick-next:before {
+    color: #000;
+}
+
+/*レスポンシブ対応で矢印を画面内に表示調整*/
+.slick-prev {
+    @include sp {
+        left: 0;
+        z-index: 1;
+    }
+}
+
+.slick-next {
+    @include sp {
+        right: 0;
+    }
+}
