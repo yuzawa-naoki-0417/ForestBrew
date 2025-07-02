@@ -2,7 +2,7 @@
 
 /*レスポンシブ*/
 $sp: 480px;
-$tb: 780px;
+$tb: 768px;
 
 @mixin sp {
     @media screen and (max-width: ($sp)) {
@@ -97,8 +97,8 @@ img {
         .navi-menu {
             display: flex;
 
-            /*SP時ハンバーガーメニューを表示するため非表示*/
-            @include sp {
+            /*SP,tb時ハンバーガーメニューを表示するため非表示*/
+            @include tb {
                 display: none;
             }
 
@@ -128,10 +128,10 @@ toggleボタン sp時表示
 }
 
 .toggle-btn {
-    display: none; //SP以外非表示
+    display: none; //SP,tb以外非表示
     transition: all 0.5s;
 
-    @include sp {
+    @include tb {
         width: 40px;
         height: 40px;
         z-index: 20;
@@ -167,7 +167,7 @@ toggleボタン sp時表示
     display: none;
     transition: all 0.5s;
 
-    @include sp {
+    @include tb {
         display: block;
         position: fixed;
         width: 300px;
@@ -238,8 +238,8 @@ main {
         padding-top: 80px;
         margin-bottom: 30px;
 
-        @include sp {
-            padding-top: 60px;
+        @include tb {
+            padding-top:0px;
         }
 
         img {
