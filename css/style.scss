@@ -249,7 +249,7 @@ main {
             object-fit: cover;
 
             @include sp {
-                height: 70vh;
+                height:80vh;
             }
         }
 
@@ -262,7 +262,7 @@ main {
 
             @include sp {
                 font-size: 2rem;
-                top: 18%;
+                top: 55%;
                 left: 10%;
             }
         }
