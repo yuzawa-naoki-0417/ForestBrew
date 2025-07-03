@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 /*レスポンシブ*/
 body {
   background-color: #F5F0E4;
@@ -23,7 +22,6 @@ img {
   margin-bottom: 30px;
   margin-top: 60;
 }
-
 @media screen and (max-width: 480px) {
   .sec-title {
     margin: 30px 0 15px;
@@ -44,7 +42,6 @@ img {
   padding: 0 2%;
   font-size: 1.25rem;
 }
-
 @media screen and (max-width: 480px) {
   .content {
     width: 100%;
@@ -62,46 +59,37 @@ img {
   z-index: 10;
   align-items: center;
 }
-
 #header .logo a {
   display: flex;
 }
-
 #header .logo a img {
   width: 200px;
 }
-
 @media screen and (max-width: 480px) {
   #header .logo a img {
     width: 120px;
   }
 }
-
 #header #navi {
   display: flex;
   align-items: center;
 }
-
 #header #navi .navi-menu {
   display: flex;
   /*SP,tb時ハンバーガーメニューを表示するため非表示*/
 }
-
 @media screen and (max-width: 768px) {
   #header #navi .navi-menu {
     display: none;
   }
 }
-
 #header #navi .navi-menu li {
   padding-right: 30px;
   font-size: 1.5rem;
 }
-
 #header #navi .navi-menu a {
   display: inline-block;
 }
-
 #header #navi .navi-menu a:hover {
   transform: scale(1.25);
 }
@@ -118,7 +106,6 @@ toggleボタン sp時表示
   display: none;
   transition: all 0.5s;
 }
-
 @media screen and (max-width: 768px) {
   .toggle-btn {
     width: 40px;
@@ -128,7 +115,6 @@ toggleボタン sp時表示
     cursor: pointer;
     display: block;
   }
-
   .toggle-btn span {
     position: absolute;
     width: 100%;
@@ -137,15 +123,12 @@ toggleボタン sp時表示
     background-color: #000;
     transition: all 0.5s;
   }
-
   .toggle-btn span:nth-child(1) {
     top: 22%;
   }
-
   .toggle-btn span:nth-child(2) {
     top: 50%;
   }
-
   .toggle-btn span:nth-child(3) {
     top: 78%;
   }
@@ -156,7 +139,6 @@ toggleボタン sp時表示
   display: none;
   transition: all 0.5s;
 }
-
 @media screen and (max-width: 768px) {
   #navi-sp {
     display: block;
@@ -171,7 +153,6 @@ toggleボタン sp時表示
     background-color: #935d2a;
     left: -300px;
   }
-
   #navi-sp a {
     color: #fff;
   }
@@ -184,25 +165,20 @@ visibilityやopacity、transformなど、数値で変化するプロパティで
   opacity: 1;
   left: 0;
 }
-
 .open .toggle-btn span {
   background-color: #fff;
 }
-
 .open .toggle-btn span:nth-child(1) {
   top: 50%;
   transform: rotate(-315deg);
 }
-
 .open .toggle-btn span:nth-child(2) {
   opacity: 0;
 }
-
 .open .toggle-btn span:nth-child(3) {
   top: 50%;
   transform: rotate(315deg);
 }
-
 .open #mask {
   display: block;
   position: fixed;
@@ -219,32 +195,27 @@ visibilityやopacity、transformなど、数値で変化するプロパティで
 main {
   /*並び順を逆にする*/
 }
-
 main #mainvisual {
   padding-top: 80px;
   margin-bottom: 30px;
 }
-
 @media screen and (max-width: 768px) {
   main #mainvisual {
     padding-top: 0px;
   }
 }
-
 main #mainvisual img {
   position: relative;
   width: 100%;
   height: 100vh;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
 }
-
 @media screen and (max-width: 480px) {
   main #mainvisual img {
-    height: 70vh;
+    height: 80vh;
   }
 }
-
 main #mainvisual p {
   color: white;
   font-size: 3rem;
@@ -252,158 +223,131 @@ main #mainvisual p {
   top: 60%;
   left: 7%;
 }
-
 @media screen and (max-width: 480px) {
   main #mainvisual p {
     font-size: 2rem;
-    top: 18%;
+    top: 55%;
     left: 10%;
   }
 }
-
 main #pickup {
   text-align: center;
   margin-bottom: 100px;
 }
-
 @media screen and (max-width: 480px) {
   main #pickup {
     margin-bottom: 60px;
   }
 }
-
 main #pickup .slide-items {
   width: 100%;
   height: 100%;
 }
-
 main #pickup .slide-items img {
   width: 100%;
   height: 30vh;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
 }
-
 main #concept {
   display: flex;
   justify-content: space-between;
 }
-
 @media screen and (max-width: 480px) {
   main #concept {
     flex-direction: column;
     width: 100%;
   }
 }
-
 main #concept img {
   width: 50%;
 }
-
 @media screen and (max-width: 480px) {
   main #concept img {
     width: 100%;
   }
 }
-
 main #drink,
 main #food {
   display: flex;
   margin-top: 60px;
 }
-
 main #drink dl,
 main #food dl {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-
 main #drink dl dt,
 main #food dl dt {
   width: 60%;
   text-align: left;
 }
-
 main #drink dl dd,
 main #food dl dd {
   width: 40%;
   text-align: right;
 }
-
 main #drink img,
 main #food img {
   width: 50%;
   height: 330px;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
 }
-
 @media screen and (max-width: 480px) {
-
   main #drink img,
   main #food img {
     width: 100%;
   }
 }
-
 @media screen and (max-width: 480px) {
   main #drink {
     flex-direction: column-reverse;
   }
 }
-
 @media screen and (max-width: 480px) {
   main #food {
     flex-direction: column;
   }
 }
-
 main #location {
   display: flex;
   margin-top: 60px;
 }
-
 @media screen and (max-width: 768px) {
   main #location {
     flex-direction: column;
     margin-top: 0;
   }
 }
-
 @media screen and (max-width: 768px) {
   main #location iframe {
     width: 100%;
   }
 }
-
 @media screen and (max-width: 768px) {
   main #location .content {
     width: 100%;
   }
 }
-
 main #location .content dl {
   display: flex;
   flex-wrap: wrap;
 }
-
 @media screen and (max-width: 768px) {
   main #location .content dl {
     margin: 20px 0 40px;
   }
 }
-
 @media screen and (max-width: 480px) {
   main #location .content dl {
     font-size: 1rem;
   }
 }
-
 main #location .content dl dt {
   width: 50%;
 }
-
 main #location .content dl dd {
   width: 50%;
 }
@@ -412,7 +356,6 @@ footer {
   text-align: center;
   padding: 30px 0;
 }
-
 footer #sns {
   justify-content: center;
   display: flex;
@@ -440,6 +383,4 @@ footer #sns {
   .slick-next {
     right: 0;
   }
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
